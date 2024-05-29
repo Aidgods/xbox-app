@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" 
+         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" 
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" 
+         xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4" 
+         xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" 
+         xmlns:wincap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities" 
+         xmlns:wincap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3" 
+         IgnorableNamespaces="wincap wincap3 uap4 uap uap5 mp build" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
+  <Identity Name="DolbyVisionForXboxMFT" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" Version="1.22.1025.0" ProcessorArchitecture="x64" />
+  <mp:PhoneIdentity PhoneProductId="6067d927-c9e3-4191-98e1-8577e73ca715" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Dolby Vision for Xbox</DisplayName>
+    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.15150.0" MaxVersionTested="10.0.15150.0" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00" MinVersion="14.0.24123.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="EN-US" />
+  </Resources>
+  <Applications>
+    <Application Id="App">
+      <Extensions>
+        <uap5:Extension Category="windows.videoRendererEffect">
+          <uap5:VideoRendererEffect DisplayName="Dolby Vision" Description="Dolby Vision for Xbox" wincap3:ActivatableClassId="DolbyVisionPlugin.RendererEffect" wincap3:Path="DolbyVisionPlugin.dll" wincap3:ProcessorArchitecture="x64">
+            <uap5:InputTypes>
+              <uap5:InputType SubType="30313050-0000-0010-8000-00aa00389b71" />
+            </uap5:InputTypes>
+            <uap5:VideoRendererExtensionProfiles>
+                <uap5:VideoRendererExtensionProfile Profile="dvhe.05" />
+            </uap5:VideoRendererExtensionProfiles>
+          </uap5:VideoRendererEffect>
+        </uap5:Extension>
+      </Extensions>
+      <uap:VisualElements AppListEntry="none" DisplayName="Dolby Vision" Square150x150Logo="Assets\MedTile.png" Square44x44Logo="Assets\AppList.png" Description="Dolby Vision for Xbox" BackgroundColor="transparent">
+        <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\WideTile.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <wincap:Capability Name="inProcessMediaExtension" />
+  </Capabilities>
+</Package>
